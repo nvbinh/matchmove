@@ -1,0 +1,250 @@
+span[class*="icon"] {
+	display: inline-block;
+	cursor: pointer;
+}
+.btn-reply {
+	&:hover {
+		@include icons-sprite(reply-hover);
+	}
+	@include icons-sprite(reply);
+}
+.btn-like {
+	&:hover {
+		@include icons-sprite(like-hover);
+	}
+	@include icons-sprite(like);
+}
+.btn-close {
+	&:hover {
+		@include icons-sprite(close-hover);
+	}
+	@include icons-sprite(close);	
+}
+.btn-add {
+	margin-left: 35px;
+	&:hover {
+		@include icons-sprite(plus-hover);
+	}
+	@include icons-sprite(plus);
+}
+.btn-prev {
+	.icon {
+		&:hover {
+			@include icons-sprite(left-hover);
+		}
+		@include icons-sprite(left);
+	}
+}
+.btn-next {
+	.icon {
+		&:hover {
+			@include icons-sprite(right-hover);
+		}
+		@include icons-sprite(right);
+	}
+}
+ul,
+li {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar-nav {
+	overflow: hidden;
+	li {
+		float: left;
+		margin-right: 10px;
+		padding: 10px 0;
+		a {
+			text-decoration: none;
+			color: #333;
+			font-weight: 700;
+			&:hover {
+				text-decoration: underline;
+				color: #57c15c;
+			}
+		}
+	}
+}
+
+.popup {
+	&.hide {
+		display: none;
+	}
+	&.overlay {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.6);
+		z-index: 9;
+	}
+	.content {
+		padding: 10px;
+		width: 350px;
+		height: 220px;
+		z-index: 10;
+		top: 30%;
+		left: 35%;
+		position: fixed;
+		background: #fff;
+		-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.7);
+        -moz-box-shadow: 0 0 10px rgba(0,0,0,0.7); 
+        box-shadow: 0 0 10px rgba(0,0,0,0.7);
+        .btn-close {
+			float: right;
+		    margin-top: -14px;
+		    margin-right: -1px;
+        }
+        h3 {
+        	margin: 10px 0 5px 0;
+        }
+        .post-msg {
+        	height: 50px;
+        	overflow-y: scroll;
+        	p {
+        		margin: 0;
+        		padding: 0;
+        	}
+        }
+        .text-header {
+        	width: 100%;
+        	padding: 5px;
+        	margin-bottom: 10px;
+        	box-sizing: border-box;
+        }
+        .text-content {
+        	height: 90px;
+        	width: 100%;
+        	padding: 3px 5px;
+    		box-sizing: border-box;
+    		resize: none;
+        }
+        .align {
+        	text-align: right;
+        	.btn-comment,
+        	.btn-post {
+        		display: inline-block;
+        		cursor: pointer;
+	        	width: 90px;
+	        	padding: 5px;
+	        	background: #333;
+	        	border-radius: 2px;
+	        	text-align: center;
+	        	color: #fff;
+	        	font-weight: 700;
+	        	&:hover {
+	        		background: #57c15c;
+	        	}
+        	}
+        }
+	}
+}
+
+
+.profile {
+	&-widge {
+		.heading {
+			padding-bottom: 5px;
+			border-bottom: 2px solid #333;
+			color: #57c15c;
+		}
+	}
+
+	&-user {
+		display: inline-block;
+		width: 100%;
+		&:after {
+			content: ' ';
+			clear: both;
+		}
+		.picture {
+			float: left;
+			width: 30%;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			img {
+				padding: 5px;
+				border: 1px solid #e5e5e5;
+			}
+		}
+		.user {
+			float: left;
+			width: 70%;
+			.social {
+				li {
+					text-align: center;
+					float: left;
+					width: 29%;
+					background: #e5e5e5;
+					margin-right: 2%;
+					.number {
+						margin: 25px 0 0 0;
+						color: #57c15c;
+						font-weight: 700;
+					}
+					.text {
+						margin: 0 0 10px 0;
+					}
+				}
+			}
+		}
+	}
+
+	/*Slider*/
+	&-post {
+		display: inline-block;
+		width: 100%;
+		padding: 0 30px;
+		box-sizing: border-box;
+		.slider {
+			position: relative;
+			&:after {
+				content: ' ';
+				clear: both;
+			}
+		}
+		.btn-prev {
+			position: absolute;
+			top: 30%;
+			left: -7px;
+		}
+		.btn-next {
+			position: absolute;
+			top: 30%;
+			right: -7px;
+		}
+		.slider-inner {
+			overflow: hidden;
+			margin: 0 40px;
+			&:after {
+				content: ' ';
+				clear: both;
+			}
+			.item {
+				display: none;
+				&.current {
+					display: block;
+				}
+				.title {
+					color: #57c15c;
+					margin: 5px 0 0 0;
+				}
+				.text {
+					margin: 0;
+				}
+				.social {
+					text-align: right;
+					margin-top: 10px;
+					span {
+						text-indent: -9999px;
+					}
+				}
+			}
+		}
+	}
+
+}

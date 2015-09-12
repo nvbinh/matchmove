@@ -7,8 +7,7 @@
  * # AboutCtrl
  * Controller of the matchmoveApp
  */
-angular.module('matchmoveApp')
-  .controller('AboutCtrl', function () {
+app.controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

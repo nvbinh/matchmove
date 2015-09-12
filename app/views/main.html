@@ -1,23 +1,76 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="profile-widge">
+  <h1 class="heading">Simple Profile Widget</h1>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <!--Begin Profile User Information-->
+  <div class="profile-user">
+    <figure class="picture">
+      <img src="{{profile.picture}}" alt="Profile Picture" width="120px" height="120px">
+    </figure>
+    <div class="user">
+    	<h3 class="name">{{profile.name}}</h3>
+    	<ul class="social">
+    		<li>
+    			<p class="number">{{totalPost}}</p>
+    			<p class="text">Posts</p>
+    		</li>
+    		<li>
+    			<p class="number">{{totalLike}}</p>
+    			<p class="text">Likes</p>
+    		</li>
+    		<li>
+    			<p class="number">{{totalComment}}</p>
+    			<p class="text">Comments</p>
+    		</li>
+    	</ul>
+    </div>
+  </div>
+  <!--End Profile User Information-->
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+  <!--Begin slider - The list of posts-->
+  <div class="profile-post">
+  	<div class="slider">
+	  	<span class="btn-prev" ng-click="prev()">
+	  		<span class="icon"></span>
+	  	</span>
+	  	<ul class="slider-inner">
+	  		<li class="item {{item.id == 1 ? 'current' : ''}}" ng-repeat="item in profile.posts" data-index="{{item.id}}">
+	  			<h3 class="title">{{item.title}}</h3>
+	  			<p class="text">{{item.content}}</p>
+	  			<div class="social">
+	  				<span class="icon btn-reply" ng-click="showPopup(true, item.id)">&nbsp;</span>
+	  				<span class="icon btn-like" ng-click="actionLike(item.id)">&nbsp;</span>
+	  			</div>
+	  		</li>
+	  	</ul>
+	  	<span class="btn-next" ng-click="next()">
+	  		<span class="icon"></span>
+	  	<span>
+  	</div>
+  	<span class="icon btn-add" ng-click="showPopup()">&nbsp;</span>
+  </div>
+  <!--End slider - The list of posts-->
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <!--Begin popup for create new post-->
+  <div class="popup overlay hide" id="newcomment" ng-click="hidePopupByBodyClick($event)">
+  	<div class="content">
+  		<h3>New Comment <span class="icon btn-close" ng-click="hidePopup()">&nbsp;</span></h3>
+  		<div class="post-msg"></div>
+        <textarea ng-model="comment" placeholder="Please enter comment" class="text-content"></textarea>
+        <p class="align"><span class="btn-comment" ng-click="actionComment($event)">Add</span></p>
+
+  	</div>
+  	</div>
+
+  	<div class="popup overlay hide"  ng-click="hidePopupByBodyClick($event)" id="newpost">
+  	<div class="content">
+  		<h3>New Post <span class="icon btn-close" ng-click="hidePopup()">&nbsp;</span></h3>
+  		<input ng-model="posttitle" placeholder="Please enter the post name" type="input" class="text-header"></input>
+        <textarea ng-model="postcomment" placeholder="Please enter comment" class="text-content"></textarea>
+        <p class="align"><span class="btn-post" ng-click="addPost()">Add</span></p>
+
+  	</div>
+  	</div>
+  </div>
+  <!--End popup for create new post-->
+
 </div>

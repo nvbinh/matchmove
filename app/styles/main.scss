@@ -1,20 +1,18 @@
-// bower:scss
-// endbower
+@import "partial/sprite";
+@import "partial/core";
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
+html,
 body {
   padding: 0;
+  font-family: "Sans Serif", "Arial";
+}
+
+.container {
+  margin: 0 auto;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -36,7 +34,7 @@ body {
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  margin-top: 90px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
@@ -56,24 +54,14 @@ body {
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 630px;
   }
 
   /* Remove the padding we set earlier */
   .header,
-  .marketing,
   .footer {
     padding-left: 0;
     padding-right: 0;
@@ -81,9 +69,5 @@ body {
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
 }
